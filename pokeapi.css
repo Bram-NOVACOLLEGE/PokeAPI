@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.pokedex-kolom {
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rood {
+    background-color: #dc0a2d;
+    border: 7px solid black;
+}
+
+
+.bovenste-balk {
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 15px;
+}
+.lens {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #15aabf;
+    border-radius: 50%;
+}
+
+.dot2 {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #99e9f2;
+    border-radius: 50%;
+}
+
+.dot3 {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+.zoek-balk {
+    flex-grow: 1;
+    height: 42px;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.middelste-blok {
+    height: 520px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+}
+
+.middel-boven {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+}
+
+.vak1-middel {
+    flex: 1;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 12px;
+}
+
+.middel-rechts {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vak2-middel {
+    flex: 1;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 12px;
+}
+
+.vak3-middel {
+    flex: 1.3;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 12px;
+}
+
+.vak4-middel {
+    flex: 1;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 12px;
+}
+
+.onderste-balk {
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.vak1-onder {
+    width: 38%;
+    height: 40px;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 12px;
+}
+.vak2-onder {
+    width: 38%;
+    height: 40px;
+    background-color: white;
+    border: 6px solid black;
+    border-radius: 12px;
+}
