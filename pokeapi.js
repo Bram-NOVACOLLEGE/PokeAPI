@@ -31,3 +31,7 @@ async function search_pokemon() {
         img.src = sprite;
         img.alt = data.name;
         selected_box.appendChild(img);
+    s_input.addEventListener('keydown', function (keypress) {
+    if (keypress.key === 'Enter') {
+        void search_pokemon();
+    }
