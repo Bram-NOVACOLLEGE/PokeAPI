@@ -42,7 +42,6 @@ async function search_pokemon() {
 
         let data = await response.json();
 
-        // Get the species data
         let species_response = await fetch(data.species.url);
         let species = await species_response.json();
 
@@ -66,6 +65,10 @@ async function search_pokemon() {
         let types = data.types.map(function (e) {
             return e.type.name;
         });
+
+        const entry = species.flavor_text_entries.find(e => e.language.name === "en");
+        document.querySelector("#vak3-middel").innerHTML =
+            entry ? entry.flavor_text.replace(/[\n\f]/g, " ") : "No description available";
 
         let color1 = type_colors[types[0]] || fallback_color;
 
@@ -99,4 +102,3 @@ s_input.addEventListener('keydown', function (keypress) {
         search_pokemon();
     }
 });
-
