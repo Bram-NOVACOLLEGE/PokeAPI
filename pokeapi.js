@@ -1,5 +1,6 @@
 let s_input = document.querySelector('#zoek-input');
 let selected_box = document.querySelector('#vak1-middel');
+
 let type_colors = {
     normal:   "#D3D3D3",
     fire:     "#FF4422",
@@ -20,6 +21,7 @@ let type_colors = {
     steel:    "#AAAABB",
     fairy:    "#EE99EE"
 };
+
 let fallback_color = "#CCCCCC";
 
 async function search_pokemon() {
@@ -39,6 +41,11 @@ async function search_pokemon() {
         }
 
         let data = await response.json();
+
+        // Get the species data
+        let species_response = await fetch(data.species.url);
+        let species = await species_response.json();
+
         let sprite = data.sprites.front_default;
 
         if (!sprite) {
@@ -48,6 +55,7 @@ async function search_pokemon() {
         }
 
         selected_box.innerHTML = "";
+
         let img = document.createElement("img");
         img.src = sprite;
         img.alt = data.name;
@@ -58,14 +66,27 @@ async function search_pokemon() {
         let types = data.types.map(function (e) {
             return e.type.name;
         });
+
         let color1 = type_colors[types[0]] || fallback_color;
 
         if (types.length === 2) {
+            document.querySelector("#vak2-middel").innerHTML =
+                "#" + species.id + " " + data.name.toUpperCase() +
+                "<br>" + "Type: " + types[0] + " & " + types[1];
+
             let color2 = type_colors[types[1]] || fallback_color;
-            selected_box.style.background = "linear-gradient(210deg, " + color1 + " 50%, " + color2 + " 50%)";
+
+            selected_box.style.background =
+                "linear-gradient(210deg, " + color1 + " 50%, " + color2 + " 50%)";
+
         } else {
+            document.querySelector("#vak2-middel").innerHTML =
+                "#" + species.id + " " + data.name.toUpperCase() +
+                "<br>" + "Type: " + types[0];
+
             selected_box.style.background = color1;
         }
+
     } catch (error) {
         s_input.value = "";
         s_input.placeholder = "Something went wrong, try again";
@@ -78,3 +99,4 @@ s_input.addEventListener('keydown', function (keypress) {
         search_pokemon();
     }
 });
+

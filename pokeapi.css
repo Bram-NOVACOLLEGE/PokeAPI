@@ -140,6 +140,9 @@ input {
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    align-content: center;
 }
 
 #vak3-middel {
