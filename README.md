@@ -15,6 +15,7 @@ Het doel van PokeAPI is om een simpele en gebruiksvriendelijke Pokédex te maken
 
 ## Welke API?
 De PokeAPI haalt de informatie op van PokéAPI.co 
+link van API: https://pokeapi.co/
 
 ## Gemaakt met
 ![HTML](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
