@@ -12,6 +12,7 @@ Het doel van PokeAPI is om een simpele en gebruiksvriendelijke Pokédex te maken
 - Pokemons zoeken op naam 
 - Statistieken van Pokemons bekijken
 - Afbeeldingen van Pokemons bekijken
+- Switch snel tussen normale en shiny variant door op de afbeelding van de Pokemon te klikken.
 
 ## Welke API?
 De PokeAPI haalt de informatie op van PokéAPI.co 
