@@ -153,6 +153,8 @@ input {
     font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     align-content: center;
+    overflow-y: auto;
+    overflow-wrap: break-word;
 }
 
 #vak4-middel {
@@ -160,6 +162,7 @@ input {
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
+    display: flex;
 }
 
 #onderste-balk {

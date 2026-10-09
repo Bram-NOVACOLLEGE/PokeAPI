@@ -45,6 +45,8 @@ async function search_pokemon() {
         let species_response = await fetch(data.species.url);
         let species = await species_response.json();
 
+        let stats = data.stats;
+
         let sprite = data.sprites.front_default;
 
         if (!sprite) {
@@ -61,6 +63,16 @@ async function search_pokemon() {
         img.style.width = '100%';
         img.style.height = '100%';
         selected_box.appendChild(img);
+
+
+        document.querySelector('#vak1-middel').addEventListener('click', function() {
+            if (img.src === data.sprites.front_default) {
+                img.src = data.sprites.front_shiny;
+            }
+            else {
+                img.src = data.sprites.front_default;
+            }
+        });
 
         let types = data.types.map(function (e) {
             return e.type.name;
@@ -96,6 +108,10 @@ async function search_pokemon() {
         console.error(error);
     }
 }
+
+document.querySelector('#vak4-middel').innerHTML =
+    "HP" + "<br>" + "Atk" + "<br>" + "Def" + "<br>" + "Sp.Atk" + "<br>" + "Sp.Def" + "<br>" + "Speed";
+
 
 s_input.addEventListener('keydown', function (keypress) {
     if (keypress.key === 'Enter') {
