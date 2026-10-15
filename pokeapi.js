@@ -1,25 +1,54 @@
 let s_input = document.querySelector('#zoek-input');
 let selected_box = document.querySelector('#vak1-middel');
 
+// Remembers which Pokémon is currently shown, so the click handlers
+// at the bottom of the file can use it
+let current_pokemon = null;
+
+function get_bar_color(base_stat) {
+    if (base_stat < 30) {
+        return "#FF4422";   // red
+    } else if (base_stat < 60) {
+        return "#FF9933";   // orange
+    } else if (base_stat < 90) {
+        return "#FFCC33";   // yellow
+    } else if (base_stat < 120) {
+        return "#77CC55";   // green
+    } else if (base_stat < 150) {
+        return "#2E9B3E";   // dark green
+    } else {
+        return "#3399FF";   // blue
+    }
+}
+
+let stat_labels = {
+    "hp": "HP",
+    "attack": "ATK",
+    "defense": "DEF",
+    "special-attack": "SP.ATK",
+    "special-defense": "SP.DEF",
+    "speed": "SPD"
+};
+
 let type_colors = {
-    normal:   "#D3D3D3",
-    fire:     "#FF4422",
-    water:    "#3399FF",
+    normal: "#D3D3D3",
+    fire: "#FF4422",
+    water: "#3399FF",
     electric: "#FFCC33",
-    grass:    "#77CC55",
-    ice:      "#66CCFF",
+    grass: "#77CC55",
+    ice: "#66CCFF",
     fighting: "#BB5544",
-    poison:   "#AA5599",
-    ground:   "#DDBB55",
-    flying:   "#8899FF",
-    psychic:  "#FF5599",
-    bug:      "#AABB22",
-    rock:     "#BBAA66",
-    ghost:    "#6666BB",
-    dragon:   "#7766EE",
-    dark:     "#775544",
-    steel:    "#AAAABB",
-    fairy:    "#EE99EE"
+    poison: "#AA5599",
+    ground: "#DDBB55",
+    flying: "#8899FF",
+    psychic: "#FF5599",
+    bug: "#AABB22",
+    rock: "#BBAA66",
+    ghost: "#6666BB",
+    dragon: "#7766EE",
+    dark: "#775544",
+    steel: "#AAAABB",
+    fairy: "#EE99EE"
 };
 
 let fallback_color = "#CCCCCC";
@@ -45,8 +74,6 @@ async function search_pokemon() {
         let species_response = await fetch(data.species.url);
         let species = await species_response.json();
 
-        let stats = data.stats;
-
         let sprite = data.sprites.front_default;
 
         if (!sprite) {
@@ -54,6 +81,9 @@ async function search_pokemon() {
             s_input.placeholder = "No sprite available";
             return;
         }
+
+        // Save this Pokémon so the shiny toggle can use it later
+        current_pokemon = data;
 
         selected_box.innerHTML = "";
 
@@ -64,14 +94,36 @@ async function search_pokemon() {
         img.style.height = '100%';
         selected_box.appendChild(img);
 
+        let stats_box = document.querySelector('#vak4-middel');
+        stats_box.innerHTML = "";
 
-        document.querySelector('#vak1-middel').addEventListener('click', function() {
-            if (img.src === data.sprites.front_default) {
-                img.src = data.sprites.front_shiny;
-            }
-            else {
-                img.src = data.sprites.front_default;
-            }
+        data.stats.forEach(function (s) {
+            let row = document.createElement("div");
+            row.className = "stat-rij";
+
+            let stat_name = document.createElement("span");
+            stat_name.className = "stat-naam";
+            stat_name.textContent = stat_labels[s.stat.name];
+
+            let percentage = (s.base_stat / 255) * 100;
+
+            let bar_bg = document.createElement("div");
+            bar_bg.className = "stat-balk-bg";
+
+            let bar = document.createElement("div");
+            bar.className = "stat-balk";
+            bar.style.width = percentage + "%";
+            bar.style.backgroundColor = get_bar_color(s.base_stat);
+            bar_bg.appendChild(bar);
+
+            let value = document.createElement("span");
+            value.className = "stat-waarde";
+            value.textContent = s.base_stat;
+
+            row.appendChild(stat_name);
+            row.appendChild(bar_bg);
+            row.appendChild(value);
+            stats_box.appendChild(row);
         });
 
         let types = data.types.map(function (e) {
@@ -102,6 +154,8 @@ async function search_pokemon() {
             selected_box.style.background = color1;
         }
 
+        s_input.placeholder = "Type here to search";
+
     } catch (error) {
         s_input.value = "";
         s_input.placeholder = "Something went wrong, try again";
@@ -109,12 +163,36 @@ async function search_pokemon() {
     }
 }
 
-document.querySelector('#vak4-middel').innerHTML =
-    "HP" + "<br>" + "Atk" + "<br>" + "Def" + "<br>" + "Sp.Atk" + "<br>" + "Sp.Def" + "<br>" + "Speed";
-
+// Everything below is set up once, when the page loads
 
 s_input.addEventListener('keydown', function (keypress) {
     if (keypress.key === 'Enter') {
         search_pokemon();
     }
+});
+
+// Toggle between normal and shiny sprite
+selected_box.addEventListener('click', function () {
+    if (!current_pokemon) return;
+
+    let img = selected_box.querySelector('img');
+    if (!img) return;
+
+    if (img.src === current_pokemon.sprites.front_default) {
+        img.src = current_pokemon.sprites.front_shiny || current_pokemon.sprites.front_default;
+    } else {
+        img.src = current_pokemon.sprites.front_default;
+    }
+});
+
+// Clear everything
+document.querySelector('#vak1-onder').addEventListener('click', function () {
+    current_pokemon = null;
+    selected_box.innerHTML = "";
+    selected_box.style.background = "";
+    document.querySelector('#vak2-middel').innerHTML = "";
+    document.querySelector('#vak3-middel').innerHTML = "";
+    document.querySelector('#vak4-middel').innerHTML = "";
+    document.querySelector('#zoek-input').value = "";
+    s_input.placeholder = "Type here to search";
 });

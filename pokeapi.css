@@ -141,6 +141,7 @@ input {
     border: 6px solid #000000;
     border-radius: 12px;
     font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
     text-align: center;
     align-content: center;
 }
@@ -151,6 +152,7 @@ input {
     border: 6px solid #000000;
     border-radius: 12px;
     font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
     text-align: center;
     align-content: center;
     overflow-y: auto;
@@ -163,6 +165,45 @@ input {
     border: 6px solid #000000;
     border-radius: 12px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+}
+
+.stat-rij {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-naam {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    width: 60px;
+    text-align: center;
+
+}
+
+.stat-waarde {
+    width: 40px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+}
+
+.stat-balk-bg {
+    flex-grow: 1;
+    height: 25px;
+    background-color: #e0e0e0;
+    border: 6px solid #000000;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.stat-balk {
+    height: 100%;
+    border-radius: 20px;
 }
 
 #onderste-balk {
@@ -181,4 +222,8 @@ input {
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 }
