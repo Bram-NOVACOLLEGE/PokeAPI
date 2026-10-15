@@ -157,6 +157,7 @@ input {
     align-content: center;
     overflow-y: auto;
     overflow-wrap: break-word;
+    padding: 10px;
 }
 
 #vak4-middel {
@@ -196,7 +197,7 @@ input {
     flex-grow: 1;
     height: 25px;
     background-color: #e0e0e0;
-    border: 6px solid #000000;
+    border: 5px solid #000000;
     border-radius: 20px;
     overflow: hidden;
 }
