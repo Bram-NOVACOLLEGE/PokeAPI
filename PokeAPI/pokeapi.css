@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#pokedex-kolom {
+    width: 480px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rood {
+    background-color: #dc0a2d;
+    border: 7px solid #000000;
+}
+
+#bovenste-balk {
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 15px;
+}
+
+#lens {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #15aabf;
+    border: 3px solid #000000;
+    border-radius: 50%;
+}
+
+#dot2 {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #99e9f2;
+    border-radius: 50%;
+}
+
+#dot3 {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+#zoek-balk {
+    flex-grow: 1;
+    height: 42px;
+    background-color: #ffffff;
+    border: 6px solid #000000;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+input {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: transparent;
+}
+
+#middelste-blok {
+    height: 520px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#rechte-blok{
+    height: 676px;
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+#rechte-block-border{
+    height: 710px;
+    width: 480px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    margin-left: 15px;
+    gap: 12px;
+}
+
+.lijst-item {
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+#middel-boven {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+    min-height: 0;
+}
+
+#vak1-middel {
+    flex: 1;
+    background-color: #ffffff;
+    border: 6px solid #000000;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#vak1-middel img {
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: pixelated;
+    user-select: none;
+}
+
+#middel-rechts {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+}
+
+#vak2-middel {
+    flex: 1;
+    background-color: #ffffff;
+    border: 6px solid #000000;
+    border-radius: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+}
+
+#vak3-middel {
+    flex: 1.3;
+    background-color: #ffffff;
+    border: 6px solid #000000;
+    border-radius: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    padding: 10px;
+}
+
+#vak4-middel {
+    flex: 1;
+    background-color: #ffffff;
+    border: 6px solid #000000;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+}
+
+.stat-rij {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-naam {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    width: 60px;
+    text-align: center;
+
+}
+
+.stat-waarde {
+    width: 40px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+}
+
+.stat-balk-bg {
+    flex-grow: 1;
+    height: 25px;
+    background-color: #e0e0e0;
+    border: 5px solid #000000;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.stat-balk {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.8s ease-out;
+}
+
+#onderste-balk {
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#vak1-onder,
+#vak2-onder {
+    width: 38%;
+    height: 40px;
+    background-color: #ffffff;
+    border: 6px solid #000000;
+    border-radius: 12px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.lijst-item{
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    padding: 12px;
+}
+.lijst-item img{
+    image-rendering: pixelated;
+    height: 130px;
+    width: 130px;
+    display: flex;
+}
+
+.name_and_id{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    justify-content: center;
+    align-content: center;
+}
