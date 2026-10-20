@@ -103,6 +103,40 @@ input {
     gap: 12px;
 }
 
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#rechte-blok{
+    height: 676px;
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+#rechte-block-border{
+    height: 710px;
+    width: 480px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    margin-left: 15px;
+    gap: 12px;
+}
+
+.lijst-item {
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    border-radius: 12px;
+    padding: 8px;
+}
+
 #middel-boven {
     display: flex;
     gap: 12px;
@@ -207,6 +241,7 @@ input {
 .stat-balk {
     height: 100%;
     border-radius: 20px;
+    transition: width 0.8s ease-out;
 }
 
 #onderste-balk {
@@ -230,4 +265,23 @@ input {
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
+}
+
+.lijst-item{
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    padding: 12px;
+}
+.lijst-item img{
+    image-rendering: pixelated;
+    height: 130px;
+    width: 130px;
+    display: flex;
+}
+
+.name_and_id{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    justify-content: center;
+    align-content: center;
 }

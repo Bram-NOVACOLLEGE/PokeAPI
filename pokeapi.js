@@ -1,5 +1,6 @@
 let s_input = document.querySelector('#zoek-input');
 let selected_box = document.querySelector('#vak1-middel');
+let row_number = null
 
 let current_pokemon = null;
 
@@ -82,6 +83,12 @@ async function search_pokemon() {
 
         current_pokemon = data;
 
+        row_number = document.getElementById(data.name);
+
+        if (row_number) {
+            row_number.scrollIntoView({behavior: "smooth", block: "center"}); // HOLY SHIT HET WERKT!!!!
+        }
+
         selected_box.innerHTML = "";
 
         let img = document.createElement("img");
@@ -109,8 +116,15 @@ async function search_pokemon() {
 
             let bar = document.createElement("div");
             bar.className = "stat-balk";
-            bar.style.width = percentage + "%";
+            bar.style.width = "0%";
             bar.style.backgroundColor = get_bar_color(s.base_stat);
+
+
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    bar.style.width = percentage + "%";
+                })
+            })
             bar_bg.appendChild(bar);
 
             let value = document.createElement("span");
@@ -188,6 +202,7 @@ document.querySelector('#vak1-onder').addEventListener('click', function () {
     document.querySelector('#vak3-middel').innerHTML = "";
     document.querySelector('#vak4-middel').innerHTML = "";
     document.querySelector('#zoek-input').value = "";
+    document.querySelector('#rechte-blok').scrollTop = 0;
     s_input.placeholder = "Type here to search";
 });
 
@@ -195,11 +210,44 @@ let CrySound = null
 document.querySelector('#vak2-onder').addEventListener('click', function () {
     if (!current_pokemon) return;
 
-if (CrySound) {
-    CrySound.pause();
-}
+    if (CrySound) {
+        CrySound.pause();
+    }
 
     CrySound = new Audio(current_pokemon.cries.latest || current_pokemon.cries.legacy);
     CrySound.play();
 
 });
+let list_box = document.querySelector('#rechte-blok');
+
+async function load_pokemon_list() {
+    let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1025");
+    let pokemon_list = await response.json()
+    pokemon_list.results.forEach(function (p) {
+        let id = p.url.split("/").filter(Boolean).pop();
+        let item = document.createElement("div");
+        let list_sprite = document.createElement("img")
+        list_sprite.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + id + ".png";
+        list_sprite.alt = p.name;
+        item.className = "lijst-item";
+        let name_and_id = document.createElement("div");
+        name_and_id.className = "name_and_id"
+        name_and_id.textContent = "#" + id + " " + p.name;
+        item.id = p.name;
+
+        item.append(list_sprite);
+        item.append(name_and_id);
+
+        item.addEventListener('click', function () {
+            s_input.value = p.name;
+            search_pokemon();
+
+        });
+        list_box.append(item)
+    });
+
+}
+
+load_pokemon_list()
+
+//Gemaakt met het lijden van Matthew
