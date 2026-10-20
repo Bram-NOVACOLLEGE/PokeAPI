@@ -1,23 +1,21 @@
 let s_input = document.querySelector('#zoek-input');
 let selected_box = document.querySelector('#vak1-middel');
 
-// Remembers which Pokémon is currently shown, so the click handlers
-// at the bottom of the file can use it
 let current_pokemon = null;
 
 function get_bar_color(base_stat) {
     if (base_stat < 30) {
-        return "#FF4422";   // red
+        return "#FF4422";
     } else if (base_stat < 60) {
-        return "#FF9933";   // orange
+        return "#FF9933";
     } else if (base_stat < 90) {
-        return "#FFCC33";   // yellow
+        return "#FFCC33";
     } else if (base_stat < 120) {
-        return "#77CC55";   // green
+        return "#77CC55";
     } else if (base_stat < 150) {
-        return "#2E9B3E";   // dark green
+        return "#2E9B3E";
     } else {
-        return "#3399FF";   // blue
+        return "#3399FF";
     }
 }
 
@@ -82,7 +80,6 @@ async function search_pokemon() {
             return;
         }
 
-        // Save this Pokémon so the shiny toggle can use it later
         current_pokemon = data;
 
         selected_box.innerHTML = "";
@@ -163,7 +160,6 @@ async function search_pokemon() {
     }
 }
 
-// Everything below is set up once, when the page loads
 
 s_input.addEventListener('keydown', function (keypress) {
     if (keypress.key === 'Enter') {
@@ -171,7 +167,6 @@ s_input.addEventListener('keydown', function (keypress) {
     }
 });
 
-// Toggle between normal and shiny sprite
 selected_box.addEventListener('click', function () {
     if (!current_pokemon) return;
 
@@ -185,7 +180,6 @@ selected_box.addEventListener('click', function () {
     }
 });
 
-// Clear everything
 document.querySelector('#vak1-onder').addEventListener('click', function () {
     current_pokemon = null;
     selected_box.innerHTML = "";
@@ -195,4 +189,17 @@ document.querySelector('#vak1-onder').addEventListener('click', function () {
     document.querySelector('#vak4-middel').innerHTML = "";
     document.querySelector('#zoek-input').value = "";
     s_input.placeholder = "Type here to search";
+});
+
+let CrySound = null
+document.querySelector('#vak2-onder').addEventListener('click', function () {
+    if (!current_pokemon) return;
+
+if (CrySound) {
+    CrySound.pause();
+}
+
+    CrySound = new Audio(current_pokemon.cries.latest || current_pokemon.cries.legacy);
+    CrySound.play();
+
 });

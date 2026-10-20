@@ -119,12 +119,14 @@ input {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    cursor: pointer;
 }
 
 #vak1-middel img {
     max-width: 100%;
     max-height: 100%;
     image-rendering: pixelated;
+    user-select: none;
 }
 
 #middel-rechts {
@@ -227,4 +229,5 @@ input {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-weight: bold;
     font-size: 20px;
+    cursor: pointer;
 }
