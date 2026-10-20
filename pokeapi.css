@@ -12,8 +12,9 @@ body {
     min-height: 100vh;
 }
 
-.pokedex-kolom {
+#pokedex-kolom {
     width: 480px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -24,8 +25,7 @@ body {
     border: 7px solid #000000;
 }
 
-
-.bovenste-balk {
+#bovenste-balk {
     height: 80px;
     border-radius: 12px;
     display: flex;
@@ -35,8 +35,7 @@ body {
     gap: 15px;
 }
 
-
-.lens {
+#lens {
     position: relative;
     width: 50px;
     height: 50px;
@@ -46,23 +45,24 @@ body {
     align-items: center;
 }
 
-.dot {
+#dot {
     position: absolute;
     width: 50px;
     height: 50px;
     background-color: #15aabf;
+    border: 3px solid #000000;
     border-radius: 50%;
 }
 
-.dot2 {
+#dot2 {
     position: absolute;
     width: 40px;
     height: 40px;
     background-color: #99e9f2;
     border-radius: 50%;
 }
-m
-.dot3 {
+
+#dot3 {
     position: absolute;
     width: 25px;
     height: 25px;
@@ -70,33 +70,31 @@ m
     border-radius: 50%;
 }
 
-
-.zoek-balk {
+#zoek-balk {
     flex-grow: 1;
     height: 42px;
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    overflow: hidden;
 }
 
 input {
-    display: flex;
     flex-grow: 1;
+    width: 100%;
+    height: 100%;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 20px;
     border: none;
     outline: none;
     text-align: center;
-    border-radius: 12px;
+    background: transparent;
 }
 
-.middelste-blok {
+#middelste-blok {
     height: 520px;
     border-radius: 15px;
     display: flex;
@@ -105,48 +103,128 @@ input {
     gap: 12px;
 }
 
-.middel-boven {
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#rechte-blok{
+    height: 520px;
+    width: 480px;
+    border-radius: 15px;
+    display: flex;
+    padding: 12px;
+    margin-left: 15px;
+    gap: 12px;
+}
+
+#middel-boven {
     display: flex;
     gap: 12px;
     flex: 1;
+    min-height: 0;
 }
 
-.vak1-middel {
+#vak1-middel {
     flex: 1;
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.middel-rechts {
+#vak1-middel img {
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: pixelated;
+    user-select: none;
+}
+
+#middel-rechts {
     flex: 1.1;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    min-height: 0;
 }
 
-.vak2-middel {
+#vak2-middel {
     flex: 1;
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
 }
 
-.vak3-middel {
+#vak3-middel {
     flex: 1.3;
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    padding: 10px;
 }
 
-.vak4-middel {
+#vak4-middel {
     flex: 1;
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
 }
 
-.onderste-balk {
+.stat-rij {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-naam {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    width: 60px;
+    text-align: center;
+
+}
+
+.stat-waarde {
+    width: 40px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+}
+
+.stat-balk-bg {
+    flex-grow: 1;
+    height: 25px;
+    background-color: #e0e0e0;
+    border: 5px solid #000000;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.stat-balk {
+    height: 100%;
+    border-radius: 20px;
+}
+
+#onderste-balk {
     height: 80px;
     border-radius: 12px;
     display: flex;
@@ -155,17 +233,16 @@ input {
     padding: 0 20px;
 }
 
-.vak1-onder {
+#vak1-onder,
+#vak2-onder {
     width: 38%;
     height: 40px;
     background-color: #ffffff;
     border: 6px solid #000000;
     border-radius: 12px;
-}
-.vak2-onder {
-    width: 38%;
-    height: 40px;
-    background-color: #ffffff;
-    border: 6px solid #000000;
-    border-radius: 12px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
 }
