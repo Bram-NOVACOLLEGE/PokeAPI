@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ body {
 
 .rood {
     background-color: #dc0a2d;
-    border: 7px solid #000000;
+    border: 7px solid black;
 }
 
 #bovenste-balk {
@@ -50,7 +50,7 @@ body {
     width: 50px;
     height: 50px;
     background-color: #15aabf;
-    border: 3px solid #000000;
+    border: 3px solid black;
     border-radius: 50%;
 }
 
@@ -66,15 +66,15 @@ body {
     position: absolute;
     width: 25px;
     height: 25px;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 50%;
 }
 
 #zoek-balk {
     flex-grow: 1;
     height: 42px;
-    background-color: #ffffff;
-    border: 6px solid #000000;
+    background-color: white;
+    border: 6px solid black;
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -112,8 +112,8 @@ input {
 
 #vak1-middel {
     flex: 1;
-    background-color: #ffffff;
-    border: 6px solid #000000;
+    background-color: white;
+    border: 6px solid black;
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -139,8 +139,8 @@ input {
 
 #vak2-middel {
     flex: 1;
-    background-color: #ffffff;
-    border: 6px solid #000000;
+    background-color: white;
+    border: 6px solid black;
     border-radius: 12px;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-weight: bold;
@@ -150,8 +150,8 @@ input {
 
 #vak3-middel {
     flex: 1.3;
-    background-color: #ffffff;
-    border: 6px solid #000000;
+    background-color: white;
+    border: 6px solid black;
     border-radius: 12px;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-weight: bold;
@@ -164,8 +164,8 @@ input {
 
 #vak4-middel {
     flex: 1;
-    background-color: #ffffff;
-    border: 6px solid #000000;
+    background-color: white;
+    border: 6px solid black;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -198,8 +198,8 @@ input {
 .stat-balk-bg {
     flex-grow: 1;
     height: 25px;
-    background-color: #e0e0e0;
-    border: 5px solid #000000;
+    background-color: white;
+    border: 5px solid black;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -222,8 +222,8 @@ input {
 #vak2-onder {
     width: 38%;
     height: 40px;
-    background-color: #ffffff;
-    border: 6px solid #000000;
+    background-color: white;
+    border: 6px solid black;
     border-radius: 12px;
     text-align: center;
     font-family: "Comic Sans MS", cursive, sans-serif;
