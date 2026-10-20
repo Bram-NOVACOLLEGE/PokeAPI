@@ -1,5 +1,5 @@
 # PokeCheck
-<img src="img.png" width="380"hiuiiuiu >
+<img src="img.png" width="380">
 
 ## Over het project
 Pokécheck is een simpele PokéDex waar je snel informatie kan zoeken over een Pokémon.
