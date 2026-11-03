@@ -23,9 +23,6 @@ body {
 .rood {
     background-color: #dc0a2d;
     border: 7px solid black;
-    border-radius: 15px;
-    overflow: hidden;
-    box-sizing: border-box;
 }
 
 #bovenste-balk {
@@ -106,55 +103,33 @@ input {
     gap: 12px;
 }
 
-.row {
+.row{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap;
 }
-#rechte-blok {
-    height: 100%;
+#rechte-blok{
+    height: 676px;
     width: 100%;
-    border-radius: 12px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     padding: 12px;
     gap: 12px;
     overflow-y: auto;
-    box-sizing: border-box;
-}
-#links-blok {
-    height: 100%;
-    width: 100%;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    gap: 12px;
-    overflow-y: auto;
-    box-sizing: border-box;
 }
 
-#rechte-block-border {
-    height: 710px;
-    width: 480px;
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    gap: 12px;
-    box-sizing: border-box;
-}
-#links-block-border {
+#rechte-block-border{
     height: 710px;
     width: 480px;
     border-radius: 15px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     padding: 12px;
+    margin-left: 15px;
+    gap: 12px;
 }
+
 .lijst-item {
     background-color: #ffffff;
     border: 4px solid #000000;
