@@ -86,7 +86,7 @@ async function search_pokemon() {
         row_number = document.getElementById(data.name);
 
         if (row_number) {
-            row_number.scrollIntoView({behavior: "smooth", block: "center"}); // HOLY SHIT HET WERKT!!!!
+            row_number.scrollIntoView({behavior: "smooth", block: "center"});
         }
 
         selected_box.innerHTML = "";
@@ -249,5 +249,3 @@ async function load_pokemon_list() {
 }
 
 load_pokemon_list()
-
-//Gemaakt met het lijden van Matthew
