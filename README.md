@@ -20,6 +20,9 @@ Zoek een Pokémon door zijn naam of PokéDex nummer in de zoekbalk te typen. Nad
 De PokeAPI haalt de informatie op van PokéAPI.co 
 link van API: https://pokeapi.co/
 
+## Hoe lokaal te gebruiken?
+Je kunt vanaf de GitHub de bestanden pullen naar een php project met behulp van Git. 
+
 ## Gemaakt met
 ![HTML](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/css-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
